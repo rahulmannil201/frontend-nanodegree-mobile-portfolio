@@ -1,6 +1,6 @@
 ## Website Performance Optimization portfolio project
 
-Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
+our challenge was to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques i have picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
 
 To get started, check out the repository and inspect the code.
 
@@ -8,10 +8,13 @@ To get started, check out the repository and inspect the code.
 
 ####Part 1: Optimize PageSpeed Insights score for index.html
 
-Some useful tips to help you get started:
+our aim is to have a PageSpeed Insights score for atleast 90 or above for Desktop and Mobile
 
-1. Check out the repository
-1. To inspect the site on your phone, you can run a local server
+instructions
+===========
+
+1. url for index.html is https://github.com/rahulmannil201/frontend-nanodegree-mobile-portfolio
+2.copy this url into Google Pagespeed Insight https://developers.google.com/speed/pagespeed/insights/
 
   ```bash
   $> cd /path/to/your-project-folder
