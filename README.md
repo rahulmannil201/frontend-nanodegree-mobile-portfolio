@@ -13,46 +13,55 @@ our aim is to have a PageSpeed Insights score for atleast 90 or above for Deskto
 instructions
 ===========
 
-1. url for index.html is https://github.com/rahulmannil201/frontend-nanodegree-mobile-portfolio
-2.copy this url into Google Pagespeed Insight https://developers.google.com/speed/pagespeed/insights/
+1. url for index.html is https://rahulmannil201.github.io/frontend-nanodegree-mobile-portfolio/
 
-  ```bash
-  $> cd /path/to/your-project-folder
-  $> python -m SimpleHTTPServer 8080
-  ```
+2.copy this url into Google Pagespeed Insight https://developers.google.com/speed/pagespeed/insights/ to check scores
 
-1. Open a browser and visit localhost:8080
-1. Download and install [ngrok](https://ngrok.com/) to the top-level of your project directory to make your local server accessible remotely.
+ 
+ 
+ 
+Optimisations
+=============
+1. optimized all images using picsresized.com
 
-  ``` bash
-  $> cd /path/to/your-project-folder
-  $> ./ngrok http 8080
-  ```
+2.used async word with script tag inodrer to process javascript in the background
 
-1. Copy the public URL ngrok gives you and try running it through PageSpeed Insights! Optional: [More on integrating ngrok, Grunt and PageSpeed.](http://www.jamescryer.com/2014/06/12/grunt-pagespeed-and-ngrok-locally-testing/)
+3.use media="print" for the css which is meant for printing
 
-Profile, optimize, measure... and then lather, rinse, and repeat. Good luck!
+4.inlined  css into index.html instead of a external file
+
+intially the score was very low for desktop and mobile.after optimisations it rise up to 95/100 for mobile and 96/100 for desktop
+ 
+
+
 
 ####Part 2: Optimize Frames per Second in pizza.html
 
-To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js. 
+our aim to optimize views/pizza.html, by modifying views/js/main.js until your frames per second rate is 60 fps or higher
 
-You might find the FPS Counter/HUD Display useful in Chrome developer tools described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
+instructions
+===========
+1.open https://rahulmannil201.github.io/frontend-nanodegree-mobile-portfolio/ in ur browser
 
-### Optimization Tips and Tricks
-* [Optimizing Performance](https://developers.google.com/web/fundamentals/performance/ "web performance")
-* [Analyzing the Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/analyzing-crp.html "analyzing crp")
-* [Optimizing the Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/optimizing-critical-rendering-path.html "optimize the crp!")
-* [Avoiding Rendering Blocking CSS](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-blocking-css.html "render blocking css")
-* [Optimizing JavaScript](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/adding-interactivity-with-javascript.html "javascript")
-* [Measuring with Navigation Timing](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/measure-crp.html "nav timing api"). We didn't cover the Navigation Timing API in the first two lessons but it's an incredibly useful tool for automated page profiling. I highly recommend reading.
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/eliminate-downloads.html">The fewer the downloads, the better</a>
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/optimize-encoding-and-transfer.html">Reduce the size of text</a>
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/image-optimization.html">Optimize images</a>
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching.html">HTTP caching</a>
+2.click on Cam's Pizzeria link and u will be redirected to pizza.html
 
-### Customization with Bootstrap
-The portfolio was built on Twitter's <a href="http://getbootstrap.com/">Bootstrap</a> framework. All custom styles are in `dist/css/portfolio.css` in the portfolio repo.
+3.scroll the webpage u will pizza moving
 
-* <a href="http://getbootstrap.com/css/">Bootstrap's CSS Classes</a>
-* <a href="http://getbootstrap.com/components/">Bootstrap's Components</a>
+4.take google dev tools and check fps value
+
+
+
+Optimizations
+=============
+1.queryselector is replaced with getelementsbyclassname in order to speed dom scanning(line no 516)
+
+
+2.queryseector is replaced with Getelementbyid for faster dom processing(line no 409-416, 547)
+
+3.updated updatePositions function var phasetop was taken out of the for loop(line no 518)
+
+4.for addeventlistener created var movpizza and moved it out of the for loop and decreased i value from 200 to 20
+
+5.changed changepizzasizes function var pizzasizes was taken out of the for loop and optimized 
+
+
