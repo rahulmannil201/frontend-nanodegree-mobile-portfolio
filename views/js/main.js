@@ -454,12 +454,12 @@ var resizePizzas = function(size) {
     //this var is outside the for loop that it does not repeat this element
     //queryselector is replaced with getelementsbyclassname in order to speed dom scanning
     var pizzaasizes = document.getElementsByClassName("randomPizzaContainer") ;
-    var dx = determineDx(document.getElementsByClassName("randomPizzaContainer")[i], size);
-      var newwidth;
+    var dx = determineDx(pizzaasizes[i], size);//replaced query selector and used var pizzaasize inodrer to speed up dom scanning
+    var newwidth = (pizzaasizes[i].offsetWidth + dx) + 'px'; //adding dx and px to offsetwidth take out of loop inorder to avoid the iteration over the same element again
       var pizzalength=pizzaasizes.length; //intializing pizzalength
       //looping var over pizzalength
     for ( i = 0; i < pizzalength; i++) {
-     newwidth = (pizzaasizes[i].offsetWidth + dx) + 'px'; //adding dx and px to offsetwidth
+
        pizzaasizes[i].style.width = newwidth; //intialze that into pizzasizes[i].style.width
 
     }
@@ -479,8 +479,9 @@ var resizePizzas = function(size) {
 window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
+var pizzasDiv = document.getElementById("randomPizzas");//moved this out of for loop to improve perfomance
 for (var i = 2; i < 100; i++) {
-  var pizzasDiv = document.getElementById("randomPizzas");
+
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
 
@@ -545,9 +546,10 @@ document.addEventListener('DOMContentLoaded', function() {
   var s = 256;
   //getelementbyid replaced by queryselector for better speed
   var movpizza= document.getElementById("movingPizzas1")
-  //changed limit from 200 to 20 for better optimization
-  for (var i = 0; i < 20; i++) {
-    var elem = document.createElement('img');
+  //changed limit from 200 to 24 for better optimization
+  var elem;// var elem moved out of the for loop for avoiding intiazling the variable each time
+  for (var i = 0; i < 24; i++) {
+    elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
     elem.style.height = "100px";
