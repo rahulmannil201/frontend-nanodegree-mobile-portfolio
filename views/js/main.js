@@ -406,13 +406,13 @@ var resizePizzas = function(size) {
   function changeSliderLabel(size) {
     switch(size) {
       case "1":
-        document.getElementById("#pizzaSize").innerHTML = "Small";
+        document.getElementById("pizzaSize").innerHTML = "Small";
         return;
       case "2":
-        document.getElementById("#pizzaSize").innerHTML = "Medium";
+        document.getElementById("pizzaSize").innerHTML = "Medium";
         return;
       case "3":
-        document.getElementById("#pizzaSize").innerHTML = "Large";
+        document.getElementById("pizzaSize").innerHTML = "Large";
         return;
       default:
         console.log("bug in changeSliderLabel");
@@ -424,7 +424,7 @@ var resizePizzas = function(size) {
    // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
   function determineDx (elem, size) {
     var oldWidth = elem.offsetWidth;
-    var windowWidth = document.getElementById("#randomPizzas").offsetWidth;
+    var windowWidth = document.getElementById("randomPizzas").offsetWidth;
     var oldSize = oldWidth / windowWidth;
 
     // Changes the slider value to a percent width
@@ -453,13 +453,13 @@ var resizePizzas = function(size) {
 
     //this var is outside the for loop that it does not repeat this element
     //queryselector is replaced with getelementsbyclassname in order to speed dom scanning
-    var pizzaasizes = document.getElementsByClassName(".randomPizzaContainer") ;
-    var dx = determineDx(document.getElementsByClassName(".randomPizzaContainer")[i], size);
+    var pizzaasizes = document.getElementsByClassName("randomPizzaContainer") ;
+    var dx = determineDx(document.getElementsByClassName("randomPizzaContainer")[i], size);
       var newwidth;
       var pizzalength=pizzaasizes.length; //intializing pizzalength
       //looping var over pizzalength
     for ( i = 0; i < pizzalength; i++) {
-     var newwidth = (pizzaasizes[i].offsetWidth + dx) + 'px'; //adding dx and px to offsetwidth
+     newwidth = (pizzaasizes[i].offsetWidth + dx) + 'px'; //adding dx and px to offsetwidth
        pizzaasizes[i].style.width = newwidth; //intialze that into pizzasizes[i].style.width
 
     }
@@ -544,7 +544,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
   //getelementbyid replaced by queryselector for better speed
-  var movpizza= document.getElementById("#movingPizzas1")
+  var movpizza= document.getElementById("movingPizzas1")
   //changed limit from 200 to 20 for better optimization
   for (var i = 0; i < 20; i++) {
     var elem = document.createElement('img');
